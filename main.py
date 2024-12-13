@@ -7,7 +7,6 @@ from openai import OpenAI
 from fastapi.responses import JSONResponse
 # from query_engine import QueryEngineHandler
 
-# os.environ['OPENAI_API_KEY'] = 'sk-kKp6aG6iBIASToQY3l3axVr4IzOAUOOC8O2waHXtR5T3BlbkFJ63Vil81YBOgY1s5enVxw_76pQF0zp3Vz4gUeLf75sA'
 
 from llama_index.llms.openai import OpenAI
 from llama_index.core import Settings

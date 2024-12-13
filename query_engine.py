@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 import os
 from llama_index.llms.openai import OpenAI
 
-os.environ['OPENAI_API_KEY'] = 'sk-kKp6aG6iBIASToQY3l3axVr4IzOAUOOC8O2waHXtR5T3BlbkFJ63Vil81YBOgY1s5enVxw_76pQF0zp3Vz4gUeLf75sA'
+# os.environ['OPENAI_API_KEY'] = 
 
 # response = OpenAI().complete('영훈초등학교는 어떤 학교인가요?')
 # print(response)
