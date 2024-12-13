@@ -3,3 +3,10 @@ uvicorn
 requests
 openai
 python-dotenv
+llama-index-llms-openai
+torch 
+transformers 
+python-pptx 
+Pillow
+chromadb
+llama-index-retrievers-bm25
