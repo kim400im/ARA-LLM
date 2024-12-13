@@ -29,7 +29,7 @@ client = OpenAI(api_key=openai_api_key)
 
 # 입력 모델 정의
 class InputData(BaseModel):
-    prompt: str
+    question: str
 
 class Prompt(BaseModel):
     prompt: str
@@ -150,22 +150,22 @@ async def process_input(query: Query):
         return {"error": f"Error processing the question: {str(e)}"}
     
 
-# @app.post("/process")
-# async def process_input(data: InputData):
-#     try:
-#         # ChatGPT API 호출
-#         response = client.chat.completions.create(
-#             model="gpt-3.5-turbo",  # 또는 사용하고자 하는 모델
-#             messages=[
-#                 {"role": "system", "content": "You are a helpful assistant."},
-#                 {"role": "user", "content": data.prompt}
-#             ]
-#         )
-#         # 응답 반환
-#         return {"response": response.choices[0].message.content.strip()}
-#     except Exception as e:
-#         print(f"Error: {str(e)}")
-#         return {"error": "An error occurred while processing your request."}
+@app.post("/process_normal")
+async def process_input(data: InputData):
+    try:
+        # ChatGPT API 호출
+        response = openai.chat.completions.create(
+            model="gpt-3.5-turbo",  # 또는 사용하고자 하는 모델
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": data.question}
+            ]
+        )
+        # 응답 반환
+        return {"response": response.choices[0].message.content.strip()}
+    except Exception as e:
+        print(f"Error: {str(e)}")
+        return {"error": "An error occurred while processing your request."}
 
 @app.post("/upload/")
 async def upload_file(file: UploadFile = File(...)):
